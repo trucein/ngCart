@@ -252,8 +252,8 @@ angular.module('ngCart', ['ngCart.directives'])
         item.prototype.setQuantity = function(quantity, relative){
 
 
-            var quantityInt = parseInt(quantity);
-            if (quantityInt % 1 === 0){
+            var quantityInt = parseFloat(quantity);
+            if (quantityInt){
                 if (relative === true){
                     this._quantity  += quantityInt;
                 } else {
