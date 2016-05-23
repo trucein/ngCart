@@ -259,7 +259,6 @@ angular.module('ngCart', ['ngCart.directives'])
                 } else {
                     this._quantity = quantityInt;
                 }
-                if (this._quantity < 1) this._quantity = 1;
 
             } else {
                 this._quantity = 1;
@@ -270,7 +269,8 @@ angular.module('ngCart', ['ngCart.directives'])
         };
 
         item.prototype.getQuantity = function(){
-            return this._quantity;
+            qty = Math.floor(this._quantity * 100) / 100;
+            return qty;
         };
 
         item.prototype.setData = function(data){
