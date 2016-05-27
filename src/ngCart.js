@@ -255,7 +255,7 @@ angular.module('ngCart', ['ngCart.directives'])
             var quantityInt = parseFloat(quantity);
             if (quantityInt){
                 if (relative === true){
-                    this._quantity  += quantityInt;
+                    this._quantity  =  ((this._quantity * 1000) + (quantityInt * 1000))/ 1000;
                 } else {
                     this._quantity = quantityInt;
                 }
@@ -269,7 +269,7 @@ angular.module('ngCart', ['ngCart.directives'])
         };
 
         item.prototype.getQuantity = function(){
-            qty = Math.floor(this._quantity * 100) / 100;
+            qty = Math.floor(this._quantity * 1000) / 1000;
             return qty;
         };
 
